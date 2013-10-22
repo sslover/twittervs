@@ -128,10 +128,10 @@ sockets.sockets.on('connection', function(socket) {
 
       //Set up the twitter component
       var t = new twitter({
-            consumer_key: 'DDFKrqAh5Gp0vT90rS1g1w', 
-            consumer_secret: 'Dk3E3NBQtxQsfdLPjUUU6dmLwMCeLlWIvpZkZojxIo',
-            access_token_key: '81014526-sEruflJpOTKZs8QDPqsjQ1OAYzvVGzCTpA6zsO3w',
-            access_token_secret: 'kHTOuiPhLSsKGlKXaZcZ3PjeudwlFZPjXfED0rpJ24'
+            consumer_key: process.env.consumer_key, 
+            consumer_secret: process.env.consumer_secret,
+            access_token_key: process.env.access_token_key,
+            access_token_secret: process.env.access_token_secret
       });
 
       //Tell the twitter API to filter on the allTopics, and then we will see if the topics are in our topic1 or topic2 list
