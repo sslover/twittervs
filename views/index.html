@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>twittervs.</title>
+        <meta name="description" content="Visualizing two twitter topics versus eachother">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="icon" type="image/png" href="/img/favicon.png">
+
+        <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+<!-- ask for the topics -->
+<div id="ask">
+    <div class="row">
+      <div class="span12">       
+         <h1><img src="/img/twitter-bird-dark-bgs1.png" width="50" height="50">..twittervs..<img src="/img/twitter-bird-dark-bgs.png" width="50" height="50"></h1>
+         <h3>visualizing two topics versus eachother</h3>
+         <h4>-- enter your topics below --</h4>
+     </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+        
+        <div class="span12 centerit">
+            <div class="form-group">
+                <input id="t1" type="text" value="" placeholder="Enter Topic 1" class="form-control">
+            </div>
+            <h4 class="vs">vs.</h4>          
+            <div class="form-group">
+                <input id="t2" type="text" value="" placeholder="Enter Topic 2" class="form-control">
+            </div>
+            <a href="#" id="button1">go</a>   
+        </div>
+
+    </div>
+</div>
+
+<!-- start the show! -->
+<div id="go">
+    <div class="row">
+      <div class="span12">       
+         <h4>Based on <span id="tweetCount">0</span> tweets (and counting!)</h4>
+     </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+      <div class="chart-bar" id="topic1-chart">   
+        <h4><span id="topic1Data"></span></h4>    
+     </div>
+      <div class="chart-bar" id="topic2-chart">   
+        <h4><span id="topic2Data"></span></h4>        
+     </div>
+    </div>
+
+    <div class="row" style="margin-top: 50px;">
+
+      <div id="topic1" class="span6" style="border-right: 1px solid #fff;">       
+     </div>
+
+      <div id="topic2" class="span6" style="margin-left: -1px; border-left: 1px solid #fff;">       
+     </div>
+    
+    </div>
+</div>
+    </body>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+
+        <script src="/components/socket.io-client/dist/socket.io.min.js"></script>
+        <script src="/js/vendor/bootstrap.min.js"></script>
+        <script src="/js/script.js"></script>
+
+</html>
