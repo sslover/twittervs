@@ -154,41 +154,50 @@ $(function() {
         var topic = data.tweet[3]; 
         var topicCount = data.tweet[4]; 
 
-    // we are going to append the current tweet to the correct place
-    // first set up the html
-    var html = '<li><a href='+tweetURL+' target=\'_blank\'><img src='+photoURL+' height=\'30\' width=\'30\'></li>';
 
-    //first, we need to make sure the topic tag/name doesn't have any spaces
-    topic = topic.replace(/\s+/g, '-').toLowerCase();
+     if(typeof topic === 'undefined'){
+       console.log("undefined data");
+     }
+     else if(topic==null){
+       console.log("null data");
+     }
+     else{
+        // we are going to append the current tweet to the correct place
+        // first set up the html
+        var html = '<li><a href='+tweetURL+' target=\'_blank\'><img src='+photoURL+' height=\'30\' width=\'30\'></li>';
 
-    //then append that to the correct topic
-    $("#"+topic).append(html);
+        //first, we need to make sure the topic tag/name doesn't have any spaces
+        topic = topic.replace(/\s+/g, '-').toLowerCase();
+    
+        //then append that to the correct topic
+        $("#"+topic).append(html);
 
-    // now let's update the number of tweets for that topic            
-    $('#tweetCount-topic1').text(topic1Total);
-    $('#tweetCount-topic2').text(topic2Total);
+        // now let's update the number of tweets for that topic            
+        $('#tweetCount-topic1').text(topic1Total);
+        $('#tweetCount-topic2').text(topic2Total);
 
-    // for the top area of the page, here we do all the calculations on the total tweets and the percentage breakdown
-    $("#tweetCount").text(totalTweets);
+        // for the top area of the page, here we do all the calculations on the total tweets and the percentage breakdown
+        $("#tweetCount").text(totalTweets);
 
-    var topic1Width = Math.round((topic1Total / totalTweets) * 100);
-    var topic2Width = Math.round((topic2Total / totalTweets) * 100);
+        var topic1Width = Math.round((topic1Total / totalTweets) * 100);
+        var topic2Width = Math.round((topic2Total / totalTweets) * 100);
 
-    if((topic1Width + topic2Width) > 100){
-        topic2Width = Math.floor((topic2Total / totalTweets) * 100);
-    }        
+        if((topic1Width + topic2Width) > 100){
+            topic2Width = Math.floor((topic2Total / totalTweets) * 100);
+        }        
 
-    $("#topic1-chart").css("width", topic1Width +"%");
-    $("#topic2-chart").css("width", topic2Width +"%");
+        $("#topic1-chart").css("width", topic1Width +"%");
+        $("#topic2-chart").css("width", topic2Width +"%");
 
-    $("#topic1Data").text(topic1Width + "% (" + topic1Total +")");
-    $("#topic2Data").text(topic2Width + "% (" + topic2Total +")");
+        $("#topic1Data").text(topic1Width + "% (" + topic1Total +")");
+        $("#topic2Data").text(topic2Width + "% (" + topic2Total +")");
 
 
 
-    $('#last-update').text(new Date().toTimeString());
+        $('#last-update').text(new Date().toTimeString());
+     }
 
-    });
+});
 
 // if they click to submit the new topics, get that info and send it to the server
 $( "#button1" ).click(function() {
@@ -211,7 +220,7 @@ $( "#button1" ).click(function() {
 
 // if they click to submit the examples, get that info and send it to the server
 $( "#example1" ).click(function() {
-    var t1 = "Hilary Clinton";
+    var t1 = "Hillary Clinton";
     var t2 = "Miley Cyrus";
 
     var data = {
