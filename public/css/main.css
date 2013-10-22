@@ -9,6 +9,9 @@ img {
 	/*-moz-border-radius: 30px; Disabled for FF1+ */
 }
 
+a, a:hover{
+	color: #4099FF;
+}
 .row, .span12{
 	width: 100%;
 	margin-left: 0px;

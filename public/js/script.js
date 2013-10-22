@@ -33,8 +33,14 @@ $(function() {
         startingTopic2Total = data.topic2Data.total;
         startingTotal = data.topic1Data.total + data.topic2Data.total;
 
+        //if there is not an existing search, show some options
+        if(data.topic1Master == ""){
+            $( "#examples" ).show();
+        }
+
         //if there is an existing search, show it to the user!
         if(data.topic1Master != ""){
+            $( "#examples" ).hide();
             $( "#go" ).show();
             // let's file in the values of the forms with the 2 topics!
             $('#t1').val(topic1List[0]);
@@ -82,7 +88,8 @@ $(function() {
         startingTotal = data.topic1Data.total + data.topic2Data.total;
 
         $( "#go" ).show();
-        
+        $( "#examples" ).hide();
+
         //reset the old topics!
         $( "#d1content" ).remove();
         $( "#d2content" ).remove();
@@ -200,6 +207,46 @@ $( "#button1" ).click(function() {
         // Send it over sockets
         socket.emit('newData', data);
     }
+});
+
+// if they click to submit the examples, get that info and send it to the server
+$( "#example1" ).click(function() {
+    var t1 = "Hilary Clinton";
+    var t2 = "Miley Cyrus";
+
+    var data = {
+        topic1 : t1,
+        topic2 : t2
+    }
+        console.log("sending... " + data);
+        // Send it over sockets
+        socket.emit('newData', data);
+});
+
+$( "#example2" ).click(function() {
+    var t1 = "pizza";
+    var t2 = "salad";
+    
+    var data = {
+        topic1 : t1,
+        topic2 : t2
+    }
+        console.log("sending... " + data);
+        // Send it over sockets
+        socket.emit('newData', data);
+});
+
+$( "#example3" ).click(function() {
+    var t1 = "Bieber";
+    var t2 = "Obama";
+    
+    var data = {
+        topic1 : t1,
+        topic2 : t2
+    }
+        console.log("sending... " + data);
+        // Send it over sockets
+        socket.emit('newData', data);
 });
 
 })
